@@ -1,0 +1,176 @@
+*table part*/
+
+/*
+Generic Styling, for Desktops/Laptops
+*/
+.show-sem__table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Zebra striping */
+/*  .show-sem__table tr:nth-of-type(odd) {
+      background: #eee;
+  }*/
+
+.show-sem__table th {
+    background: var(--main-color-blue-one);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.show-sem__table td, th {
+    padding: 7px;
+    /*border: 1px solid #ccc;*/
+    text-align: center;
+}
+
+.show-sem__table tr {
+    border-left: .1rem solid #e1e1e1;
+    border-right: .1rem solid #e1e1e1;
+}
+
+.show-sem__table td img {
+    width: 70px;
+}
+
+.show-sem__table tr td:last-child a {
+    color: #000;
+    background: var(--main-color-cta);
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 0.6rem;
+}
+
+.show-sem__table tr td:last-child a:hover {
+    background: var(--main-color-cta-lighter);
+}
+
+.show-sem__table td:before {
+    display: none;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    /* Force table to not be like tables anymore */
+    .show-sem__table table, .show-sem__table thead, .show-sem__table tbody, .show-sem__table th, .show-sem__table td, .show-sem__table tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .show-sem__table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .show-sem__table tr {
+        border: 1px solid #ccc;
+    }
+
+    .show-sem__table td {
+        /* Behave  like a "row" */
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        min-height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .show-sem__table td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        display: block;
+    }
+
+    .show-sem__table td:first-child {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .show-sem__table td:first-child img {
+        position: absolute;
+        right: 18%;
+        top: 1%;
+    }
+
+    .show-sem__table td:nth-of-type(1)::before {
+        content: "Nom du site";
+        display: block;
+    }
+
+    .show-sem__table td {
+        font-weight: 600;
+    }
+
+    .show-sem__table td::before {
+        font-weight: normal;
+    }
+}
+
+.show-sem__table td:nth-of-type(1):before {
+    content: "Nom";
+}
+
+.show-sem__table td:nth-of-type(2):before {
+    content: "Test";
+}
+
+        .show-sem__table td:nth-of-type(3):before {
+    content: "Réputation";
+}
+
+        .show-sem__table td:nth-of-type(4):before {
+    content: "Service clients";
+}
+
+        .show-sem__table td:nth-of-type(5):before {
+    content: "Paiements";
+}
+
+        .show-sem__table td:nth-of-type(6):before {
+    content: "Cotes";
+}
+
+        .show-sem__table td:nth-of-type(7):before {
+    content: "Site web";
+}
+
+        .show-sem__table td:nth-of-type(8):before {
+    content: "Offre de paris";
+}
+
+        .show-sem__table td:nth-of-type(9):before {
+    content: "Mobile";
+}
+
+        .show-sem__table td:nth-of-type(10):before {
+    content: "Live";
+}
+
+        .show-sem__table td:nth-of-type(11):before {
+    content: "Note globale";
+}
+
+    
+.show-sem__table td:nth-of-type(12):before {
+    content: "Visiter";
+}
+
+.show-sem__table td:nth-last-child(2) {
+    font-weight: bold;
+}

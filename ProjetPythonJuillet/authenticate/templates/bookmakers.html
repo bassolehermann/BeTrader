@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    
+
+    
+    <title>Document</title>
+</head>
+<body >
+    <div class="col-lg-12 bg-info">
+            <div class="col-xs-8">
+                <h1 class="col-xs-2"><img src="{% static 'images/logo.jpeg' %}" style="border-radius: 50px"></h1>
+            </div>   
+            <nav class="navbar col-xs-3 pull-right" >
+
+                {% if user.is_authenticated %}
+
+                <div class="dropdown" >
+                    <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 60px;">{{ user.username}}
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'logout' %}">Logout</a></li>
+                      <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
+                      <li><a href="{% url 'change_password' %}">Change Password</a></li>
+                    </ul>
+                </div>
+                
+                {% else %}
+                <div class="dropdown"  >
+                    <button class=" dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 60px;">Authentification 
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a  href="{% url 'login' %}">Login</a></li>
+                      <li><a href="{% url 'register' %}">Register</a></li>
+                    </ul>
+                </div>
+                
+
+           {% endif %}
+        </nav>
+    </div>
+    <div class="col-sm-12" style="background: gray;height:30px;">
+            <ul class="navbar-nav"style="margin-top:3px;">
+                    
+                    <li class="dropdown">
+                        <a href="/football" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-futbol"></i> Football <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/football">Ligue 1</a></li>
+                            <li><a href="#">Premiere League</a></li>
+                            <li><a href="#">Liga</a></li>
+                            <li><a href="#">Serie A</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-baseball-ball"></i> Tennis <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Open Australie</a></li>
+                                <li><a href="#">Roland Garros</a></li>
+                                <li><a href="#">Wimbledon</a></li>
+                                <li><a href="#">US Open</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-basketball-ball"></i> Basketball<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">NBA</a></li>
+                                <li><a href="#">ULEB</a></li>
+                                <li><a href="#">EUROCUP</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fab fa-steam"></i> Autres sports <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Handball</a></li>
+                                <li><a href="#">Ping-pong</a></li>
+                                <li><a href="#">PMU</a></li>
+                            </ul>
+                    </li>
+                    <li >
+                            <a href="www.flashresultats.com" ><i class="fab fa-steam"></i> Direct </a>   
+                    </li>
+                    
+                    <li >
+                        <a href="/bookmakers" ><i class="fab fa-steam"></i> Guide Paris Sportif </a>   
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li >
+                        <a href="/codespromos" ><i class="fab fa-steam"></i> Codes Promos </a>   
+                    </li>
+                    {% endif %}
+            </ul>
+    </div>
+    
+    <div class="container-fluid"> <h2 class="titre">Comment choisir son site pour parier ?</h2>
+    <p>Pour établir le classement des meilleurs sites pour parier en ligne, nous analysons chaque jour plus d’une trentaine de critères tous plus importants les uns que les autres à nos yeux. Au-delà de l’aspect des sites, des promotions qu’ils proposent ou encore de la qualité des cotes offertes, nous regardons dans les moindres détails chaque bookmaker pour vous offrir le meilleur. Si chacun possède des particularités intéressantes et suffisantes pour s’inscrire, quelques-uns se détachent en haut de notre classement des meilleurs bookmakers ! Comment parier en ligne ? Chez qui parier ? On vous dévoile les meilleurs sites pour parier en ligne !</p>
+    <p>Premièrement, nous nous sommes attardés sur la réputation de tous les sites de paris sportifs. Gagner aux paris sportifs n’étant jamais simple, autant se tourner vers ceux qui ont obtenu le plus d’avis positifs non ? Dans ce premier critère, ce sont notamment l’avis des joueurs, l’avis des experts, les différentes licences obtenues ou encore les partenariats établis par chaque site de paris sportifs qui nous ont intéressé.</p>
+   
+    <p>Deuxième critère, le service client. Devant parfois être sollicité pour une question ou un dysfonctionnement, la qualité du service client des bookmakers reste l’un des éléments important d’un bon jeu. C’est pourquoi nous testons régulièrement les différentes plateformes des sites de paris en ligne que ce soient les chats, les courriers postaux, e-mails ou appels téléphoniques. Un atout parfois dénigré mais tellement important pour notre classement des bookmakers !</p>
+    <p>Pour le troisième critère de notre classement, nos spécialistes en paris se sont notamment intéressés à l’aspect paiement des bookmakers. Par là, nous entendons notamment la diversité des moyens de dépôt et de retrait, les délais de virements ou encore la sécurité autour de ces derniers. Bien souvent, les sites pour parier sur le sport sont assez qualitatifs sur cet aspect.</p>
+    </div>
+    <div class="BbCodeRatingBooksTable">
+        <style>
+
+/*table part*/
+
+/*
+Generic Styling, for Desktops/Laptops
+*/
+.show-sem__table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Zebra striping */
+/*  .show-sem__table tr:nth-of-type(odd) {
+      background: #eee;
+  }*/
+
+.show-sem__table th {
+    background: var(--main-color-blue-one);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.show-sem__table td, th {
+    padding: 7px;
+    /*border: 1px solid #ccc;*/
+    text-align: center;
+}
+
+.show-sem__table tr {
+    border-left: .1rem solid #e1e1e1;
+    border-right: .1rem solid #e1e1e1;
+}
+
+.show-sem__table td img {
+    width: 70px;
+}
+
+.show-sem__table tr td:last-child a {
+    color: #000;
+    background: var(--main-color-cta);
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 0.6rem;
+}
+
+.show-sem__table tr td:last-child a:hover {
+    background: var(--main-color-cta-lighter);
+}
+
+.show-sem__table td:before {
+    display: none;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    /* Force table to not be like tables anymore */
+    .show-sem__table table, .show-sem__table thead, .show-sem__table tbody, .show-sem__table th, .show-sem__table td, .show-sem__table tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .show-sem__table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .show-sem__table tr {
+        border: 1px solid #ccc;
+    }
+
+    .show-sem__table td {
+        /* Behave  like a "row" */
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        min-height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .show-sem__table td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        display: block;
+    }
+
+    .show-sem__table td:first-child {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .show-sem__table td:first-child img {
+        position: absolute;
+        right: 18%;
+        top: 1%;
+    }
+
+    .show-sem__table td:nth-of-type(1)::before {
+        content: "Nom du site";
+        display: block;
+    }
+
+    .show-sem__table td {
+        font-weight: 600;
+    }
+
+    .show-sem__table td::before {
+        font-weight: normal;
+    }
+}
+
+.show-sem__table td:nth-of-type(1):before {
+    content: "Nom";
+}
+
+.show-sem__table td:nth-of-type(2):before {
+    content: "Test";
+}
+
+        .show-sem__table td:nth-of-type(3):before {
+    content: "Réputation";
+}
+
+        .show-sem__table td:nth-of-type(4):before {
+    content: "Service clients";
+}
+
+        .show-sem__table td:nth-of-type(5):before {
+    content: "Paiements";
+}
+
+        .show-sem__table td:nth-of-type(6):before {
+    content: "Cotes";
+}
+
+        .show-sem__table td:nth-of-type(7):before {
+    content: "Site web";
+}
+
+        .show-sem__table td:nth-of-type(8):before {
+    content: "Offre de paris";
+}
+
+        .show-sem__table td:nth-of-type(9):before {
+    content: "Mobile";
+}
+
+        .show-sem__table td:nth-of-type(10):before {
+    content: "Live";
+}
+
+        .show-sem__table td:nth-of-type(11):before {
+    content: "Note globale";
+}
+
+    
+.show-sem__table td:nth-of-type(12):before {
+    content: "Visiter";
+}
+
+.show-sem__table td:nth-last-child(2) {
+    font-weight: bold;
+}
+</style>
+
+<section class="show-sem__table">
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Test</th>
+                                            <th>Réputation</th>
+                                <th>Service clients</th>
+                                <th>Paiements</th>
+                                <th>Cotes</th>
+                                <th>Site web</th>
+                                <th>Offre de paris</th>
+                                <th>Mobile</th>
+                                <th>Live</th>
+                                <th>Note globale</th>
+                                    <th>Visiter</th>
+    </tr>
+    </thead>
+    <tbody>
+                                                                        <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/zebet.png" alt="ZEbet"></td>
+                                        <td><a href="/bookmakers/zebet/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>9.0</td>
+                                        <td>9.0</td>
+                                        <td>9.0</td>
+                                        <td>8.5</td>
+                                        <td>8.5</td>
+                                        <td>8.0</td>
+                                        <td>9.0</td>
+                                        <td>9.0</td>
+                                        <td>9.0</td>
+                                    <td>
+                                                                                <a href="/book/zebet/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                                                                                    <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/winamax.png" alt="Winamax"></td>
+                                        <td><a href="/bookmakers/winamax/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>9.0</td>
+                                        <td>8.0</td>
+                                        <td>8.5</td>
+                                        <td>9.5</td>
+                                        <td>9.0</td>
+                                        <td>9.5</td>
+                                        <td>9.0</td>
+                                        <td>9.0</td>
+                                        <td>9.0</td>
+                                    <td>
+                                                                                <a href="/book/winamax/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                                                                                    <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/parionsweb.png" alt="ParionsSport En Ligne"></td>
+                                        <td><a href="/bookmakers/parionsweb/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>9.5</td>
+                                        <td>9.5</td>
+                                        <td>8.5</td>
+                                        <td>8.0</td>
+                                        <td>9.0</td>
+                                        <td>8.5</td>
+                                        <td>8.5</td>
+                                        <td>8.5</td>
+                                        <td>8.5</td>
+                                    <td>
+                                                                                <a href="/book/parionssport-en-ligne/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                                                                                    <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/bwin.png" alt="Bwin"></td>
+                                        <td><a href="/bookmakers/bwin/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>9.0</td>
+                                        <td>8.5</td>
+                                        <td>8.5</td>
+                                        <td>8.0</td>
+                                        <td>8.5</td>
+                                        <td>8.0</td>
+                                        <td>8.0</td>
+                                        <td>8.5</td>
+                                        <td>8.5</td>
+                                    <td>
+                                                                                <a href="/book/bwin/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                                                                                    <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/netbet.png" alt="Netbet"></td>
+                                        <td><a href="/bookmakers/netbet/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>9.0</td>
+                                        <td>9.0</td>
+                                        <td>8.5</td>
+                                        <td>8.5</td>
+                                        <td>9.0</td>
+                                        <td>8.0</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>8.5</td>
+                                    <td>
+                                                                                <a href="/book/netbet/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                                                                                    <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/betclic.png" alt="Betclic"></td>
+                                        <td><a href="/bookmakers/betclic/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>8.5</td>
+                                        <td>8.5</td>
+                                        <td>9.0</td>
+                                        <td>8.0</td>
+                                        <td>8.0</td>
+                                        <td>8.0</td>
+                                        <td>8.0</td>
+                                        <td>7.5</td>
+                                        <td>8.0</td>
+                                    <td>
+                                                                                <a href="/book/betclic/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                                                                                    <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/pmu.png" alt="PMU"></td>
+                                        <td><a href="/bookmakers/pmu/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>9.0</td>
+                                        <td>8.5</td>
+                                        <td>8.0</td>
+                                        <td>7.0</td>
+                                        <td>8.0</td>
+                                        <td>7.5</td>
+                                        <td>8.5</td>
+                                        <td>8.0</td>
+                                        <td>8.0</td>
+                                    <td>
+                                                                                <a href="/book/pmu/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                                                                                    <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/betstars.png" alt="Betstars"></td>
+                                        <td><a href="/bookmakers/betstars/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>7.0</td>
+                                        <td>7.0</td>
+                                        <td>8.0</td>
+                                        <td>9.0</td>
+                                        <td>7.0</td>
+                                        <td>8.0</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                    <td>
+                                                                                <a href="/book/betstars/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                                                                                    <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/unibet.png" alt="Unibet"></td>
+                                        <td><a href="/bookmakers/unibet/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>7.5</td>
+                                        <td>7.0</td>
+                                        <td>7.5</td>
+                                        <td>7.0</td>
+                                        <td>8.0</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                    <td>
+                                                                                <a href="/book/unibet/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                                                                                    <tr>
+                <td><img src="https://static.sportytrader.com/logos_bookmakers/cotes/france-pari.png" alt="France Pari"></td>
+                                        <td><a href="/bookmakers/france-pari/"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                    </td>
+                                                                                <td>7.5</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                        <td>6.5</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                        <td>7.0</td>
+                                    <td>
+                                                                                <a href="/book/france-pari/betsite" rel="nofollow" target="_blank">
+                                                                        Ouvrir un compte
+                                                                </a>
+                                                
+                </td>
+            </tr>
+                        </tbody>
+</table>
+</section>
+
+    
+</div>
+
+</body>
+
+    </html>

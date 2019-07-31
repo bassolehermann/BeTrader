@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    
+
+    
+    <title>Document</title>
+</head>
+<body >
+        <div class="col-lg-12 bg-info">
+            <div class="col-xs-8">
+                <h1 class="col-xs-2"><img src="{% static 'images/logo.jpeg' %}" style="border-radius: 50px"></h1>
+            </div>   
+            <nav class="navbar col-xs-3 pull-right" >
+
+                    {% if user.is_authenticated %}
+
+                    <div class="dropdown" >
+                        <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 60px;">{{ user.username}}
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="{% url 'logout' %}">Logout</a></li>
+                          <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
+                          <li><a href="{% url 'change_password' %}">Change Password</a></li>
+                        </ul>
+                    </div>
+                    
+                    {% else %}
+                    <div class="dropdown"  >
+                        <button class=" dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 60px;">Authentification 
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a  href="{% url 'login' %}">Login</a></li>
+                          <li><a href="{% url 'register' %}">Register</a></li>
+                        </ul>
+                    </div>
+                    
+
+               {% endif %}
+            </nav>
+    </div>
+    <div class="col-sm-12" style="background: gray;height:30px;">
+            <ul class="navbar-nav"style="margin-top:3px;">
+                    
+                    <li class="dropdown">
+                        <a href="/football" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-futbol"></i> Football <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/football">Ligue 1</a></li>
+                            <li><a href="#">Premiere League</a></li>
+                            <li><a href="#">Liga</a></li>
+                            <li><a href="#">Serie A</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-baseball-ball"></i> Tennis <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Open Australie</a></li>
+                                <li><a href="#">Roland Garros</a></li>
+                                <li><a href="#">Wimbledon</a></li>
+                                <li><a href="#">US Open</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-basketball-ball"></i> Basketball<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">NBA</a></li>
+                                <li><a href="#">ULEB</a></li>
+                                <li><a href="#">EUROCUP</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fab fa-steam"></i> Autres sports <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Handball</a></li>
+                                <li><a href="#">Ping-pong</a></li>
+                                <li><a href="#">PMU</a></li>
+                            </ul>
+                    </li>
+                    <li >
+                            <a href="www.flashresultats.com" ><i class="fab fa-steam"></i> Direct </a>   
+                    </li>
+                    
+                    <li >
+                        <a href="/bookmakers" ><i class="fab fa-steam"></i> Guide Paris Sportif </a>   
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li >
+                        <a href="/codespromos" ><i class="fab fa-steam"></i> Codes Promos </a>   
+                    </li>
+                    {% endif %}
+            </ul>
+    </div>
+
+    <section>
+        <div class="main">
+            
+            <img src="{% static 'images/main.jpg' %}" alt="">
+        </div>
+    </section>
+
+    <section class="container ">
+        
+        <div class="">
+                <h1 class="titre"><strong>Collaboration</strong></h1>
+                    <div class="col-md-3 ">
+                        <h1 class="titre"><img src="{% static 'images/betclic.png' %}" alt=""></h1>
+                        <h4 class="titre"> <strong>Betclic</strong></h4>
+                        
+                    </div>
+                    <div class="col-md-3 ">
+                        <h1 class="titre"><img src="{% static 'images/unibet.png' %}" alt=""></h1>
+                            <h4 class="titre"><strong>UniBet</strong></h4>
+                            
+                    </div>
+                    <div class="col-md-3 ">
+                            <h1 class="titre"><img src="{% static 'images/1xbet.png' %}" alt=""></h1>
+                            <h4 class="titre"><strong>1XBet</strong></h4>
+                            
+                    </div>
+                    <div class="col-md-3 ">
+                            <h1 class="titre"><img src="{% static 'images/winamax (1).png' %}" alt=""></h1>
+                            <h4 class="titre"><strong>Winamax</strong></h4>
+                            
+                    </div>
+        </div>
+    </section>
+   
+    <br>
+    <section class="section bg-info" >
+        <div class="container-fluid">
+            <h1 class="titre" ><strong>Nos Cordonnés</strong></h1>
+            <div class="col-sm-9">
+                <h4 style="text-decoration:underline;">Contact & Horaire</h4>
+                <p><i class="fas fa-map-marker-alt"></i>    Angré Gestoci,non loin du CHU angré</p>
+                <p><i class="fas fa-phone"></i> +225 49792733</p>
+                <p><i class="fas fa-phone"></i> +225 40221520</p>
+                <p><i class="fas fa-envelope"></i>  bassolehermann@gmail.com</p>
+                <p><i class="far fa-clock"></i> 7j/7   24h/24</p>
+            </div>
+            
+            <div class="col-sm-3">
+                <h4 class="titre"style="text-decoration:underline;">Reseaux Sociaux</h4>
+                <ul>
+                    <li style="list-style: none;"><i class="fab fa-facebook-f"></i>   FaceBook</li>
+                    <li style="list-style: none;"><i class="fab fa-twitter"></i>  Twitter</li>
+                    <li style="list-style: none;"><i class="fab fa-instagram"></i>    Instragram</li>
+                    <li style="list-style: none;"><i class="fab fa-youtube"></i>  Youtube</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.map'%}"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+</body>
+</html>
